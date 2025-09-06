@@ -6,39 +6,51 @@
   <title>Community Health</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-blue-50 text-gray-800">
+<body class="bg-blue-50 text-gray-800 flex flex-col min-h-screen">
 
   <!-- Header -->
   <header class="bg-blue-600 text-white text-sm">
     <div class="container mx-auto px-4 py-2 flex justify-between items-center">
-      <span>📞 Public Health Emergency Hotline: <strong>0800-000-0000</strong></span>
-      <span class="hidden sm:inline">Follow us:  𝕏 </span>
+      <span>📞 Hotline: <strong>0800-000-0000</strong></span>
+      
+      <!-- Instagram Link -->
+      <a href="https://instagram.com/YOUR_PAGE" target="_blank" class="flex items-center space-x-1 hover:text-gray-200">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zm4.5 3a5.5 5.5 0 1 1 0 11a5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7a3.5 3.5 0 0 0 0-7zm5-1a1 1 0 1 1 0-2a1 1 0 0 1 0 2z"/>
+        </svg>
+        <span>Follow us</span>
+      </a>
     </div>
   </header>
 
   <!-- Navbar -->
-  <nav class="bg-blue-50 text-gray-800">
+  <nav class="bg-white shadow">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <!-- Logo -->
       <div class="flex items-center space-x-2 font-bold text-xl text-blue-600">
-        <img src="img/fyp logo.jpg" alt="Community Health Logo" class="h-14 w-auto">
+        <img src="img/fyp logo.jpg" alt="Community Health Logo" class="h-12 w-auto">
         <span>Community Health</span>
       </div>
 
+      <!-- Desktop menu -->
       <ul class="hidden md:flex space-x-6 text-gray-700 font-medium">
-        <li><a href="#" class="hover:text-blue-600">Home</a></li>
+        <li><a href="index.html" class="hover:text-blue-600">Home</a></li>
         <li><a href="report issue.html" class="hover:text-blue-600">Report Issue</a></li>
         <li><a href="view report.html" class="hover:text-blue-600">View Reports</a></li>
-        <li><a href="Recent report.html" class="hover:text-blue-600">Health Alerts</a></li>
+        <li><a href="health alert.html" class="hover:text-blue-600">Health Alerts</a></li>
         <li><a href="contact.html" class="hover:text-blue-600">Contact</a></li>
       </ul>
 
+      <!-- Quick Report Button -->
       <a href="report issue.html" class="hidden md:inline bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Quick Report</a>
 
+      <!-- Mobile Menu Button -->
       <button class="md:hidden text-gray-700 focus:outline-none" id="menu-btn">☰</button>
     </div>
 
+    <!-- Mobile Dropdown -->
     <div class="md:hidden hidden px-4 pb-4 space-y-2" id="mobile-menu">
-      <a href="#" class="block hover:text-blue-600">🏠︎ Home</a>
+      <a href="index.html" class="block hover:text-blue-600">🏠 Home</a>
       <a href="report issue.html" class="block hover:text-blue-600">Report Issue</a>
       <a href="view report.html" class="block hover:text-blue-600">View Reports</a>
       <a href="health alert.html" class="block hover:text-blue-600">Health Alerts</a>
@@ -47,29 +59,27 @@
     </div>
   </nav>
 
- <!-- Hero Section with Background Image -->
-  <section class="relative h-[500px] md:h-[600px]">
-    <img src="img/hero-image.png" alt="Community Health" class="absolute inset-0 w-full h-full object-cover">
-    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-    <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 text-white">
-      <h1 class="text-4xl md:text-5xl font-bold leading-tight">Maintain the safety and well-being of your community.</h1>
-      <p class="mt-4 text-lg max-w-2xl">Submit public health concern anonymously to assist in preventing disease outbreaks in your neighborhood.</p>
+  <!-- Hero Section -->
+  <section class="relative h-[50vh]">
+    <img src="img/hero.jpg" alt="Community Health Hero" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center text-white px-4">
+      <h1 class="text-3xl md:text-5xl font-bold leading-tight">Maintain the safety and well-being of your community.</h1>
+      <p class="mt-4 text-lg">Submit public health concerns anonymously to help prevent disease outbreaks in your neighborhood.</p>
       <div class="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="report issue.html" class="bg-white text-blue-700 font-semibold px-6 py-3 rounded hover:bg-gray-200">Report an Issue Now</a>
+        <a href="report issue.html" class="bg-white text-blue-700 font-semibold px-6 py-3 rounded hover:bg-gray-200">Report an Issue Now</a>        
         <a href="Recent report.html" class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600">View Recent Reports</a>
       </div>
     </div>
   </section>
 
-
   <!-- How It Works -->
-  <section class="py-16">
+  <section class="py-16 flex-grow">
     <div class="container mx-auto px-4">
       <h2 class="text-2xl font-bold text-center mb-10">How It Works</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
         <div class="bg-white p-6 rounded shadow hover:shadow-lg transition">
           <h3 class="font-semibold text-lg mb-2">1. Report an Issue</h3>
-          <p>Report health concern quickly and anonymously using our easy-to-use form.</p>
+          <p>Report health concerns quickly and anonymously using our easy-to-use form.</p>
         </div>
         <div class="bg-white p-6 rounded shadow hover:shadow-lg transition">
           <h3 class="font-semibold text-lg mb-2">2. Authorities Notified</h3>
@@ -83,51 +93,30 @@
     </div>
   </section>
 
-<!-- Footer with Background Image like Hero (Smaller Height) -->
-<footer class="relative h-64 md:h-72 mt-10 text-white">
-  <!-- Background Image -->
-  <img src="img/footer-image.png" alt="Community Health Footer" class="absolute inset-0 w-full h-full object-cover">
-  
-  <!-- Overlay -->
-  <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-  
-  <!-- Footer Content -->
-  <div class="relative z-10 container mx-auto px-4 py-6 grid grid-cols-1 md:grid-cols-4 gap-6 text-sm">
-    <div>
-      <h4 class="font-semibold mb-2">Community Health</h4>
-      <p>Empowering communities to report health hazards, promote wellness, and strengthen public health through collective awareness.</p>
-      <div class="mt-2 space-x-2"> 𝕏 </div>
-    </div>
-    <div>
-      <h4 class="font-semibold mb-2">Quick Links</h4>
-      <ul>
-        <li><a href="#" class="hover:underline text-white">Home</a></li>
-        <li><a href="report issue.html" class="hover:underline text-white">Report Issue</a></li>
-        <li><a href="view report.html" class="hover:underline text-white">View Reports</a></li>
-        <li><a href="health alert.html" class="hover:underline text-white">Health Alerts</a></li>
-        <li><a href="About.html" class="hover:underline text-white">About</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4 class="font-semibold mb-2">Health Topics</h4>
-      <ul>
-        <li>Waste Management</li>
-        <li>Water Safety</li>
-        <li>Disease Prevention</li>
-        <li>Food Safety</li>
-      </ul>
-    </div>
-    <div>
-      <h4 class="font-semibold mb-2">Contact Us</h4>
-      <p>📍 123 Anonymous place, City</p>
-      <p>📧 health@community.org</p>
-      <p>📞 0800-000-0000</p>
-      <p>🕒 Mon–Fri: 9AM – 5PM</p>
-    </div>
-  </div>
+  <!-- Footer -->
+  <footer class="bg-blue-600 text-white py-8 mt-auto">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-6 text-sm">
+      <div>
+        <h4 class="font-semibold mb-2">Community Health</h4>
+        <p>Empowering communities to report health hazards, promote wellness, and strengthen public health through awareness, action, and shared responsibility.</p>
+        <div class="mt-2 space-x-2">
+          <a href="https://instagram.com/YOUR_PAGE" target="_blank" class="inline-flex items-center space-x-1 hover:text-gray-200">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zm4.5 3a5.5 5.5 0 1 1 0 11a5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7a3.5 3.5 0 0 0 0-7zm5-1a1 1 0 1 1 0-2a1 1 0 0 1 0 2z"/>
+            </svg>
+            <span>Instagram</span>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-2">Quick Links</h4>
+        <ul>
+          <li><a href="index.html" class="hover:underline">Home</a></li>
+          <li><a href="report issue.html" class="hover:underline">Report Issue</a></li>
+          <li><a href="view report.html" class="hover:underline">View Reports</a></li>
+          <li><a href="health alert.html" class="hover:underline">Health Alerts</a></li>
+          <li><a href="About.html" class="hover:underline">About</a></li>
+        </ul>
+      </div
 
-  <!-- Bottom Text -->
-  <div class="relative z-10 text-center text-sm mt-4 border-t border-white/40 pt-2">
-    © 2025 Community Health Feedback & Alert System. All rights reserved.
-  </div>
-</footer>
+
