@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community Health</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-blue-50 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-blue-600 text-white text-sm">
+    <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+      <span>📞 Public Health Emergency Hotline: <strong>0800-000-0000</strong></span>
+      <span class="hidden sm:inline">Follow us:  𝕏 </span>
+    </div>
+  </header>
+
+  <!-- Navbar -->
+  <nav class="bg-blue-50 text-gray-800">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-2 font-bold text-xl text-blue-600">
+        <img src="img/fyp logo.jpg" alt="Community Health Logo" class="h-14 w-auto">
+        <span>Community Health</span>
+      </div>
+
+      <ul class="hidden md:flex space-x-6 text-gray-700 font-medium">
+        <li><a href="#" class="hover:text-blue-600">Home</a></li>
+        <li><a href="report issue.html" class="hover:text-blue-600">Report Issue</a></li>
+        <li><a href="view report.html" class="hover:text-blue-600">View Reports</a></li>
+        <li><a href="Recent report.html" class="hover:text-blue-600">Health Alerts</a></li>
+        <li><a href="contact.html" class="hover:text-blue-600">Contact</a></li>
+      </ul>
+
+      <a href="report issue.html" class="hidden md:inline bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Quick Report</a>
+
+      <button class="md:hidden text-gray-700 focus:outline-none" id="menu-btn">☰</button>
+    </div>
+
+    <div class="md:hidden hidden px-4 pb-4 space-y-2" id="mobile-menu">
+      <a href="#" class="block hover:text-blue-600">🏠︎ Home</a>
+      <a href="report issue.html" class="block hover:text-blue-600">Report Issue</a>
+      <a href="view report.html" class="block hover:text-blue-600">View Reports</a>
+      <a href="health alert.html" class="block hover:text-blue-600">Health Alerts</a>
+      <a href="contact.html" class="block hover:text-blue-600">Contact</a>
+      <a href="report issue.html" class="block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Quick Report</a>
+    </div>
+  </nav>
+
+ <!-- Hero Section with Background Image -->
+  <section class="relative h-[500px] md:h-[600px]">
+    <img src="img/hero-image.png" alt="Community Health" class="absolute inset-0 w-full h-full object-cover">
+    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+    <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 text-white">
+      <h1 class="text-4xl md:text-5xl font-bold leading-tight">Maintain the safety and well-being of your community.</h1>
+      <p class="mt-4 text-lg max-w-2xl">Submit public health concern anonymously to assist in preventing disease outbreaks in your neighborhood.</p>
+      <div class="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="report issue.html" class="bg-white text-blue-700 font-semibold px-6 py-3 rounded hover:bg-gray-200">Report an Issue Now</a>
+        <a href="Recent report.html" class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600">View Recent Reports</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- How It Works -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl font-bold text-center mb-10">How It Works</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+        <div class="bg-white p-6 rounded shadow hover:shadow-lg transition">
+          <h3 class="font-semibold text-lg mb-2">1. Report an Issue</h3>
+          <p>Report health concern quickly and anonymously using our easy-to-use form.</p>
+        </div>
+        <div class="bg-white p-6 rounded shadow hover:shadow-lg transition">
+          <h3 class="font-semibold text-lg mb-2">2. Authorities Notified</h3>
+          <p>Your report is sent directly to local authorities for prompt action.</p>
+        </div>
+        <div class="bg-white p-6 rounded shadow hover:shadow-lg transition">
+          <h3 class="font-semibold text-lg mb-2">3. Issue Resolved</h3>
+          <p>Stay updated as your report is reviewed and resolved.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Footer with Background Image like Hero (Smaller Height) -->
+<footer class="relative h-64 md:h-72 mt-10 text-white">
+  <!-- Background Image -->
+  <img src="img/footer-image.png" alt="Community Health Footer" class="absolute inset-0 w-full h-full object-cover">
+  
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+  
+  <!-- Footer Content -->
+  <div class="relative z-10 container mx-auto px-4 py-6 grid grid-cols-1 md:grid-cols-4 gap-6 text-sm">
+    <div>
+      <h4 class="font-semibold mb-2">Community Health</h4>
+      <p>Empowering communities to report health hazards, promote wellness, and strengthen public health through collective awareness.</p>
+      <div class="mt-2 space-x-2"> 𝕏 </div>
+    </div>
+    <div>
+      <h4 class="font-semibold mb-2">Quick Links</h4>
+      <ul>
+        <li><a href="#" class="hover:underline text-white">Home</a></li>
+        <li><a href="report issue.html" class="hover:underline text-white">Report Issue</a></li>
+        <li><a href="view report.html" class="hover:underline text-white">View Reports</a></li>
+        <li><a href="health alert.html" class="hover:underline text-white">Health Alerts</a></li>
+        <li><a href="About.html" class="hover:underline text-white">About</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-semibold mb-2">Health Topics</h4>
+      <ul>
+        <li>Waste Management</li>
+        <li>Water Safety</li>
+        <li>Disease Prevention</li>
+        <li>Food Safety</li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-semibold mb-2">Contact Us</h4>
+      <p>📍 123 Anonymous place, City</p>
+      <p>📧 health@community.org</p>
+      <p>📞 0800-000-0000</p>
+      <p>🕒 Mon–Fri: 9AM – 5PM</p>
+    </div>
+  </div>
+
+  <!-- Bottom Text -->
+  <div class="relative z-10 text-center text-sm mt-4 border-t border-white/40 pt-2">
+    © 2025 Community Health Feedback & Alert System. All rights reserved.
+  </div>
+</footer>

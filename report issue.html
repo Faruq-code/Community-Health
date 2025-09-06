@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Report Issue - Community Health</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-b from-blue-50 to-blue-100 text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-2 font-bold text-xl text-blue-600">
+        <img src="img/fyp logo.jpg" alt="Community Health Logo" class="h-14 w-auto">
+        <span>Community Health</span>
+      </div>
+      <ul class="hidden md:flex space-x-6 text-gray-700 font-medium">
+        <li><a href="homepage.html" class="hover:text-blue-600">Home</a></li>
+        <li><a href="report issue.html" class="text-blue-600 font-semibold">Report Issue</a></li>
+        <li><a href="view report.html" class="hover:text-blue-600">View Reports</a></li>
+        <li><a href="health alert.html" class="hover:text-blue-600">Health Alerts</a></li>
+        <li><a href="contact.html" class="hover:text-blue-600">Contact</a></li>
+         <li><a href="about.html" class="hover:text-blue-600">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Report Form Section -->
+  <section class="container mx-auto px-4 py-10 max-w-2xl">
+    <h1 class="text-3xl font-bold text-center text-blue-700 mb-6">Report an Issue</h1>
+
+    <div class="bg-white shadow-lg rounded-2xl p-6">
+      <form action="#" method="post" class="space-y-5">
+        <!-- Issue Category -->
+        <div>
+          <label for="category" class="block text-gray-700 font-medium">Issue Category</label>
+          <select id="category" name="category" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500">
+            <option>Waste Management</option>
+            <option>Water Safety</option>
+            <option>Disease Outbreak</option>
+            <option>Food Safety</option>
+            <option>Environmental Pollution</option>        
+          </select>
+        </div>
+        <form class="space-y-4">
+  
+  <textarea placeholder="Describe the Issue" rows="4" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+  
+  <!-- File Upload Section -->
+<div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+  <label class="block text-blue-700 font-semibold mb-2">Upload Evidence (Images/Videos)</label>
+  <input type="file" accept="image/*,video/*" multiple class="w-full border rounded-lg p-2 cursor-pointer text-gray-600">
+  <p class="text-sm text-gray-500 mt-1">You can select multiple files (Max size: 5MB each)</p>
+</div>
+
+        <!-- Name Field -->
+        <div class="mb-4">
+          <label for="name" class="block text-gray-700 font-medium mb-1">
+            Your Name <span class="text-gray-500 text-sm">(Optional)</span>
+          </label>
+          <input 
+            type="text" 
+            id="name" 
+            name="name" 
+            placeholder="Leave blank to remain anonymous"
+            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
+          />
+        </div>
+        <!-- Submit Button -->
+        <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition">
+          Submit Report
+        </button>
+      </form>
+    </div>
+  </section>
+
+
