@@ -21,7 +21,7 @@
         <li><a href="view report.html" class="hover:text-blue-600">View Reports</a></li>
         <li><a href="health alert.html" class="hover:text-blue-600">Health Alerts</a></li>
         <li><a href="contact.html" class="hover:text-blue-600">Contact</a></li>
-        <li><a href="about.html" class="hover:text-blue-600">About</a></li>
+         <li><a href="about.html" class="hover:text-blue-600">About</a></li>
       </ul>
     </div>
   </nav>
@@ -32,13 +32,12 @@
 
     <div class="bg-white shadow-lg rounded-2xl p-6">
       <!-- ✅ Only ONE form -->
-      <form id="reportForm" action="#" method="post" class="space-y-5">
-        
+      <form id="reportForm" class="space-y-5">
+
         <!-- Issue Category -->
         <div>
           <label for="category" class="block text-gray-700 font-medium">Issue Category</label>
           <select id="category" name="category" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500">
-            <option value="">-- Select Category --</option>
             <option>Waste Management</option>
             <option>Water Safety</option>
             <option>Disease Outbreak</option>
@@ -48,13 +47,17 @@
         </div>
 
         <!-- Issue Details -->
-        <textarea id="details" placeholder="Describe the Issue" rows="4" 
-          class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+        <div>
+          <label for="details" class="block text-gray-700 font-medium">Describe the Issue</label>
+          <textarea id="details" name="details" rows="4"
+            class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Describe the Issue"></textarea>
+        </div>
 
         <!-- File Upload Section -->
         <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
           <label class="block text-blue-700 font-semibold mb-2">Upload Evidence (Images/Videos)</label>
-          <input type="file" id="evidence" accept="image/*,video/*" multiple 
+          <input type="file" id="evidence" accept="image/*,video/*" multiple
             class="w-full border rounded-lg p-2 cursor-pointer text-gray-600">
           <p class="text-sm text-gray-500 mt-1">You can select multiple files (Max size: 5MB each)</p>
         </div>
@@ -65,7 +68,9 @@
             Your Name <span class="text-gray-500 text-sm">(Optional)</span>
           </label>
           <input 
-            type="text" id="name" name="name" 
+            type="text" 
+            id="name" 
+            name="name" 
             placeholder="Leave blank to remain anonymous"
             class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
           />
@@ -79,7 +84,7 @@
     </div>
   </section>
 
-  <!-- ✅ Link JS -->
-  <script src="Javascript/main.js"></script>
+  <!-- ✅ Link JS at bottom -->
+  <script src="javascript/main.js"></script>
 </body>
 </html>
