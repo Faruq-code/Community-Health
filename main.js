@@ -1,57 +1,41 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // ========================
-  // Contact Form Validation
-  // ========================
-  let contactForm = document.getElementById("contactForm");
+  // --- Contact Form ---
+  const contactForm = document.querySelector("form#contactForm, .space-y-4"); 
   if (contactForm) {
-    contactForm.addEventListener("submit", function(event) {
-      let name = document.getElementById("name").value.trim();
-      let email = document.getElementById("email").value.trim();
-      let message = document.getElementById("message").value.trim();
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-      if (name === "" || email === "" || message === "") {
-        alert("⚠️ Please fill in all contact fields.");
-        event.preventDefault();
+      const name = document.getElementById("name")?.value || "Anonymous";
+      const email = document.getElementById("email")?.value || "Not provided";
+      const message = document.getElementById("message")?.value || "";
+
+      if (!message.trim()) {
+        alert("Please enter a message before sending.");
         return;
       }
 
-      // Simple email format check
-      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
-        alert("⚠️ Please enter a valid email address.");
-        event.preventDefault();
-        return;
-      }
-
-      alert("✅ Message sent successfully!");
+      alert(`✅ Message sent!\nName: ${name}\nEmail: ${email}\nMessage: ${message}`);
+      contactForm.reset();
     });
   }
 
-  // ========================
-  // Report Issue Validation
-  // ========================
-  let reportForm = document.getElementById("reportForm");
+  // --- Report Issue Form ---
+  const reportForm = document.getElementById("reportForm");
   if (reportForm) {
-    reportForm.addEventListener("submit", function(event) {
-      let category = document.getElementById("category").value.trim();
-      let details = document.getElementById("details").value.trim();
+    reportForm.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-      if (category === "" || details === "") {
-        alert("⚠️ Please select a category and describe the issue.");
-        event.preventDefault();
+      const category = document.getElementById("category")?.value || "Unspecified";
+      const details = document.getElementById("details")?.value || "";
+      const name = document.getElementById("name")?.value || "Anonymous";
+
+      if (!details.trim()) {
+        alert("Please describe the issue before submitting.");
         return;
       }
 
-      // File validation
-      let files = document.getElementById("evidence").files;
-      for (let file of files) {
-        if (file.size > 5 * 1024 * 1024) { // 5MB per file
-          alert("⚠️ Each file must be less than 5MB.");
-          event.preventDefault();
-          return;
-        }
-      }
-
-      alert("✅ Report submitted successfully!");
+      alert(`✅ Report submitted!\nCategory: ${category}\nDetails: ${details}\nName: ${name}`);
+      reportForm.reset();
     });
   }
 });
