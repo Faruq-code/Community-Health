@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // --- Contact Form ---
-  const contactForm = document.querySelector("form#contactForm, .space-y-4"); 
+  const contactForm = document.getElementById("contactForm");
   if (contactForm) {
     contactForm.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const message = document.getElementById("message")?.value || "";
 
       if (!message.trim()) {
-        alert("Please enter a message before sending.");
+        alert("⚠️ Please enter a message before sending.");
         return;
       }
 
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const name = document.getElementById("name")?.value || "Anonymous";
 
       if (!details.trim()) {
-        alert("Please describe the issue before submitting.");
+        alert("⚠️ Please describe the issue before submitting.");
         return;
       }
 
