@@ -1,63 +1,86 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Health Alerts</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-50 text-gray-800">
+document.addEventListener("DOMContentLoaded", () => {
+  // ========================
+  // Contact Form Validation
+  // ========================
+  let contactForm = document.getElementById("contactForm");
+  if (contactForm) {
+    contactForm.addEventListener("submit", function(event) {
+         event.preventDefault();
+      let name = document.getElementById("name").value.trim();
+      let email = document.getElementById("email").value.trim();
+      let message = document.getElementById("message").value.trim();
 
-  <!-- Navbar -->
-  <nav class="bg-white shadow">
-    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <div class="flex items-center space-x-2 font-bold text-xl text-blue-600">
-        <img src="img/fyp logo.jpg" alt="Community Health Logo" class="h-14 w-auto">
-        <span>Community Health</span>
-      </div>
-      <ul class="hidden md:flex space-x-6 text-gray-700 font-medium">
-        <li><a href="homepage.html" class="hover:text-blue-600">Home</a></li>
-        <li><a href="report issue.html" class="hover:text-blue-600">Report Issue</a></li>
-        <li><a href="view report.html" class="hover:text-blue-600">View Reports</a></li>
-        <li><a href="health-alerts.html" class="text-blue-600 font-semibold">Health Alerts</a></li>
-        <li><a href="contact.html" class="hover:text-blue-600">Contact</a></li>
-         <li><a href="about.html" class="hover:text-blue-600">About</a></li>
-      </ul>
-    </div>
-  </nav>
+      if (name === "" || email === "" || message === "") {
+        alert("⚠️ Please fill in all contact fields.");
+      return;
+      }
 
-  <!-- Health Alerts Section -->
-  <section class="bg-blue-50 py-16">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center text-blue-700 mb-10">Health Alerts</h2>
-      <p class="text-center text-gray-600 mb-8">Stay informed about critical health updates and safety measures in your community.</p>
+      // Simple email format check
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+        alert("⚠️ Please enter a valid email address.");
+        return;
+      }
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Alert 1 -->
-        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-          <h3 class="font-semibold text-lg text-blue-700">Water Contamination Alert</h3>
-          <p class="text-gray-600 mt-2">Residents are advised to boil water before drinking due to contamination reports in Zone A.</p>
-          <p class="text-sm text-gray-500 mt-4">Date: 20 Aug 2025 | Time: 08:30 AM</p>
-        </div>
-        <!-- Alert 2 -->
-        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-          <h3 class="font-semibold text-lg text-blue-700">Waste Management Advisory</h3>
-          <p class="text-gray-600 mt-2">Improper waste disposal is increasing. Keep surroundings clean to prevent disease spread.</p>
-          <p class="text-sm text-gray-500 mt-4">Date: 19 Aug 2025 | Time: 03:15 PM</p>
-        </div>
-        <!-- Alert 3 -->
-        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-          <h3 class="font-semibold text-lg text-blue-700">Disease Outbreak Warning</h3>
-          <p class="text-gray-600 mt-2">An increase in flu-like symptoms reported. Maintain hygiene and avoid crowded areas.</p>
-          <p class="text-sm text-gray-500 mt-4">Date: 18 Aug 2025 | Time: 11:45 AM</p>
-        </div>
-      </div>
-    </div>
-  </section>
+      alert("✅ Message sent successfully!");
+    });
+  }
 
-  <!-- Footer -->
-  <footer class="bg-blue-450 text-white py-8 mt-10 text-center text-sm">
-    © 2025 Community Health Feedback & Alert System. All rights reserved.
-  </footer>
-</body>
-</html>
+document.addEventListener("DOMContentLoaded", () => {
+  // ========================
+  // Contact Form Validation
+  // ========================
+  let contactForm = document.getElementById("contactForm");
+  if (contactForm) {
+    contactForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      let name = document.getElementById("name").value.trim();
+      let email = document.getElementById("email").value.trim();
+      let message = document.getElementById("message").value.trim();
+
+      // Browser handles required, this is just extra safety
+      if (name === "" || email === "" || message === "") {
+        return;
+      }
+
+      // Simple email format check
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+        alert("⚠️ Please enter a valid email address.");
+        return;
+      }
+
+      alert("✅ Message sent successfully!");
+      contactForm.reset();
+    });
+  }
+
+  // ========================
+  // Report Issue Validation
+  // ========================
+  let reportForm = document.getElementById("reportForm");
+  if (reportForm) {
+    reportForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      let category = document.getElementById("category").value.trim();
+      let details = document.getElementById("details").value.trim();
+
+      // Browser handles required, this is just extra safety
+      if (category === "" || details === "") {
+        return;
+      }
+
+      // File validation
+      let files = document.getElementById("evidence").files;
+      for (let file of files) {
+        if (file.size > 5 * 1024 * 1024) { // 5MB
+          alert("⚠️ Each file must be less than 5MB.");
+          return;
+        }
+      }
+
+      alert("✅ Report submitted successfully!");
+      reportForm.reset();
+    });
+  }
+});
