@@ -1,32 +1,25 @@
 document.addEventListener("DOMContentLoaded", () => {
   // ========================
-  // Contact Form Validation
-  // ========================
-  let contactForm = document.getElementById("contactForm");
-  if (contactForm) {
-    contactForm.addEventListener("submit", function(event) {
-      event.preventDefault();
+ // Handle Contact Form
+// ========================
+const contactForm = document.getElementById("contactForm");
+if (contactForm) {
+  contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-      let name = document.getElementById("name").value.trim();
-      let email = document.getElementById("email").value.trim();
-      let message = document.getElementById("message").value.trim();
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
 
-      // Browser handles required, this is just extra safety
-      if (name === "" || email === "" || message === "") {
-        return;
-      }
+    if (!name || !email || !message) {
+      alert("⚠️ Please fill out all fields before submitting.");
+      return;
+    }
 
-      // Simple email format check
-      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
-        alert("⚠️ Please enter a valid email address.");
-        return;
-      }
-
-      alert("✅ Message sent successfully!");
-      contactForm.reset();
-    });
-  }
-
+    alert("✅ Thank you! Your message has been sent.");
+    contactForm.reset();
+  });
+}
   // ========================
   // Report Issue Validation
   // ========================
