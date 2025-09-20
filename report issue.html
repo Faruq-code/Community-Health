@@ -9,13 +9,13 @@
 <body class="bg-gradient-to-b from-blue-50 to-blue-100 text-gray-800">
 
   <!-- Navbar -->
- <nav class="bg-white shadow">
-  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-    <!-- Logo -->
-    <a href="index.html" class="flex items-center space-x-2 font-bold text-xl text-blue-600">
-      <img src="img/fyp logo.jpg" alt="Community Health Logo" class="h-12 w-12 object-cover rounded-full">
-      <span>Community Health</span>
-    </a>
+  <nav class="bg-white shadow">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center space-x-2 font-bold text-xl text-blue-600">
+        <img src="img/fyp logo.jpg" alt="Community Health Logo" class="h-12 w-12 object-cover rounded-full">
+        <span>Community Health</span>
+      </a>
       <ul class="hidden md:flex space-x-6 text-gray-700 font-medium">
         <li><a href="index.html" class="hover:text-blue-600">Home</a></li>
         <li><a href="report issue.html" class="text-blue-600 font-semibold">Report Issue</a></li>
@@ -32,26 +32,24 @@
     <h1 class="text-3xl font-bold text-center text-blue-700 mb-6">Report an Issue</h1>
 
     <div class="bg-white shadow-lg rounded-2xl p-6">
-      <!-- ✅ Only ONE form -->
       <form id="reportForm" action="#" method="post" class="space-y-5">
         
         <!-- Issue Category -->
-<div>
-  <label for="category" class="block text-gray-700 font-medium">Issue Category</label>
-  <select id="category" name="category" required
-    class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500">
-    <option value="">-- Select Category --</option>
-    <option>Waste Management</option>
-    <option>Water Safety</option>
-    <option>Disease Outbreak</option>
-    <option>Food Safety</option>
-    <option>Environmental Pollution</option>        
-  </select>
-</div>
+        <div>
+          <label for="category" class="block text-gray-700 font-medium">Issue Category</label>
+          <select id="category" name="category" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500">
+            <option value="">-- Select Category --</option>
+            <option>Waste Management</option>
+            <option>Water Safety</option>
+            <option>Disease Outbreak</option>
+            <option>Food Safety</option>
+            <option>Environmental Pollution</option>        
+          </select>
+        </div>
 
-<!-- Issue Details -->
-<textarea id="details" name="details" placeholder="Describe the Issue" rows="4" required
-  class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+        <!-- Issue Details -->
+        <textarea id="details" placeholder="Describe the Issue" rows="4" 
+          class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
 
         <!-- File Upload Section -->
         <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
@@ -78,12 +76,53 @@
           Submit Report
         </button>
       </form>
+
+      <!-- ✅ Success/Error Message -->
+      <p id="reportMessage" class="hidden mt-4 text-center font-medium"></p>
     </div>
   </section>
 
-  <!-- ✅ Link JS -->
-  <script src="Javascript/main.js"></script>
+  <!-- ✅ Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const reportForm = document.getElementById("reportForm");
+      const reportMessage = document.getElementById("reportMessage");
+
+      if (reportForm) {
+        reportForm.addEventListener("submit", function(event) {
+          event.preventDefault();
+
+          let category = document.getElementById("category").value.trim();
+          let details = document.getElementById("details").value.trim();
+          let files = document.getElementById("evidence").files;
+
+          if (category === "" || details === "") {
+            reportMessage.textContent = "⚠️ Please select a category and describe the issue.";
+            reportMessage.className = "mt-4 text-red-600 font-medium text-center";
+            reportMessage.classList.remove("hidden");
+            return;
+          }
+
+          // File validation (5MB per file)
+          for (let file of files) {
+            if (file.size > 5 * 1024 * 1024) {
+              reportMessage.textContent = "⚠️ Each file must be less than 5MB.";
+              reportMessage.className = "mt-4 text-red-600 font-medium text-center";
+              reportMessage.classList.remove("hidden");
+              return;
+            }
+          }
+
+          // ✅ Success Message
+          reportMessage.textContent = "✅ Report submitted successfully!";
+          reportMessage.className = "mt-4 text-green-600 font-medium text-center";
+          reportMessage.classList.remove("hidden");
+
+          // Clear form
+          reportForm.reset();
+        });
+      }
+    });
+  </script>
 </body>
 </html>
-
-
