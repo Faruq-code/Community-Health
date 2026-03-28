@@ -9,6 +9,18 @@
             <span class="mr-2">←</span> Back to list
         </x-ui.button>
         <div class="flex flex-wrap gap-2">
+            @if($report->status === 'Pending')
+                <x-ui.button variant="outline" size="sm" href="{{ route('user.reports.edit', $report) }}" class="text-xs font-bold uppercase tracking-widest border-white/10 hover:border-white/20">
+                    Edit Report
+                </x-ui.button>
+                <form action="{{ route('user.reports.destroy', $report) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this report? This action cannot be undone.')">
+                    @csrf
+                    @method('DELETE')
+                    <x-ui.button variant="destructive" size="sm" type="submit" class="text-xs font-bold uppercase tracking-widest">
+                        Delete
+                    </x-ui.button>
+                </form>
+            @endif
              @php
                 $statusVariant = match($report->status) {
                     'Pending' => 'amber',
@@ -24,6 +36,10 @@
                 {{ $report->priority }} Priority
             </x-ui.badge>
         </div>
+    </div>
+
+    <div class="glass p-8 rounded-2xl border border-white/10">
+        <x-ui.status-timeline :status="$report->status" />
     </div>
 
     <x-ui.card class="p-10">
