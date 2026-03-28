@@ -37,4 +37,33 @@ class ReportController extends Controller
         abort_if($report->user_id !== auth()->id(), 403);
         return view('user.reports.show', compact('report'));
     }
+
+    public function edit(Report $report)
+    {
+        abort_if($report->user_id !== auth()->id() || $report->status !== 'Pending', 403);
+        return view('user.reports.edit', compact('report'));
+    }
+
+    public function update(Request $request, Report $report)
+    {
+        abort_if($report->user_id !== auth()->id() || $report->status !== 'Pending', 403);
+
+        $validated = $request->validate([
+            'title'       => 'required|string|max:200',
+            'category'    => 'required|in:Bug,Feature Request,Infrastructure,Security,Other',
+            'priority'    => 'required|in:Low,Medium,High,Critical',
+            'description' => 'required|string|min:20|max:5000',
+        ]);
+
+        $report->update($validated);
+        return redirect()->route('user.reports.show', $report)->with('success', 'Report updated successfully.');
+    }
+
+    public function destroy(Report $report)
+    {
+        abort_if($report->user_id !== auth()->id() || $report->status !== 'Pending', 403);
+
+        $report->delete();
+        return redirect()->route('user.reports.index')->with('success', 'Report deleted successfully.');
+    }
 }

@@ -63,10 +63,22 @@
                             </x-ui.badge>
                         </td>
                         <td class="px-6 py-4 text-sm text-gray-400">{{ $report->created_at->format('M d, Y') }}</td>
-                        <td class="px-6 py-4 text-right">
+                        <td class="px-6 py-4 text-right flex justify-end gap-2">
                             <x-ui.button variant="ghost" size="sm" href="{{ route('user.reports.show', $report) }}" class="text-indigo-400 hover:text-indigo-300 font-bold uppercase tracking-widest text-[10px]">
                                 View
                             </x-ui.button>
+                            @if($report->status === 'Pending')
+                                <x-ui.button variant="ghost" size="sm" href="{{ route('user.reports.edit', $report) }}" class="text-gray-400 hover:text-white font-bold uppercase tracking-widest text-[10px]">
+                                    Edit
+                                </x-ui.button>
+                                <form action="{{ route('user.reports.destroy', $report) }}" method="POST" onsubmit="return confirm('Delete this report?')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="px-3 py-1 text-red-500/70 hover:text-red-500 transition text-[10px] font-bold uppercase tracking-widest">
+                                        Del
+                                    </button>
+                                </form>
+                            @endif
                         </td>
                     </tr>
                 @empty

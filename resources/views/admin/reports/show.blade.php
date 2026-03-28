@@ -45,6 +45,11 @@
 
     <!-- Side management -->
     <div class="space-y-6">
+        <x-ui.card class="p-8 border-amber-500/10">
+            <h3 class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-8 font-syne">Current Progress</h3>
+            <x-ui.status-timeline :status="$report->status" />
+        </x-ui.card>
+
         <x-ui.card class="p-8">
             <h3 class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-6 font-syne">Update status</h3>
             <form action="{{ route('admin.reports.status', $report) }}" method="POST" class="space-y-4">
