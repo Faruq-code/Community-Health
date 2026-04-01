@@ -26,48 +26,64 @@ A full-stack web application built with **Laravel 11** and **MySQL** for reporti
 - **Frontend**: Blade, Tailwind CSS, Alpine.js
 - **Auth**: Custom Admin Guard + Default User Auth
 
-## 🚀 Setup Instructions
+## 🚀 Stress-Free Setup (Windows)
 
-### 1. Requirements
-- PHP 8.2+
-- Composer
-- MySQL Server (XAMPP recommended)
+We've provided two scripts to make setup as easy as possible:
+1. **`setup.bat`**: Run this first. It checks for PHP/Composer, creates your `.env`, and installs dependencies.
+2. **`dev.bat`**: Run this to start the application. It launches both the PHP server and Vite at once.
 
-### 2. Installation
+---
+
+## 🛠 Choose Your Setup Method
+
+### 1. The Modern Way (Recommended)
+Use **[Laravel Herd](https://herd.laravel.com/)**. It's a zero-config environment for Windows/Mac.
+- **Why?** It includes PHP, Nginx, and Node.js. No need to install anything else.
+- **Steps**:
+  1. Install Laravel Herd.
+  2. Open this folder in your terminal.
+  3. Run `setup.bat`.
+  4. Run `php artisan migrate --seed`.
+
+### 2. The Classic Way (XAMPP)
+Use XAMPP if you already have it installed.
+- **Important**: You only need **MySQL** from XAMPP. You do **NOT** need to start Apache.
+- **Steps**:
+  1. Open XAMPP Control Panel and Start **MySQL**.
+  2. Run `setup.bat`.
+  3. Run `php artisan migrate --seed`.
+  4. Run `dev.bat` to see the site.
+
+### 3. The "No-Install" Way (SQLite)
+If you don't want to install XAMPP or Herd at all.
+- **Steps**:
+  1. Open `.env` and change `DB_CONNECTION=mysql` to `DB_CONNECTION=sqlite`.
+  2. Create an empty file in `database/` called `database.sqlite`.
+  3. Run `setup.bat`.
+  4. Run `php artisan migrate --seed`.
+
+---
+
+## 🏗 Setup Commands (Manual)
+
+If you prefer manual setup:
+
 ```bash
-# Clone the repository
-git clone <repository-url>
-cd Community-Health
-
-# Install dependencies
+# 1. Install dependencies
 composer install
-```
+npm install
 
-### 3. Environment Configuration
-Create a `.env` file (or copy `.env.example`) and configure your database:
-```ini
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=community_health
-DB_USERNAME=root
-DB_PASSWORD=YourPassword123
-
-SESSION_DRIVER=database
-```
-
-### 4. Database Setup
-```bash
+# 2. Setup environment
+cp .env.example .env
 php artisan key:generate
-php artisan migrate:fresh --seed
-php artisan db:seed --class=AdminSeeder
-```
 
-### 5. Run the Application
-```bash
+# 3. Database
+php artisan migrate --seed
+
+# 4. Start Development
 php artisan serve
+npm run dev
 ```
-Visit: `http://127.0.0.1:8000`
 
 ## 🔑 Default Credentials
 - **Admin**: `admin@community.com` / `admin123`
